@@ -1,0 +1,28 @@
+function App() {
+  const [contentList, setContetList] = useState([
+    {articleId:1, type:"b", textId:1, text:"VRとはバーチャルリアリティのこと"},
+    {articleId:1, type:"g", textId:1, text:"https://souken.shikigaku.jp/wp-content/uploads/2022/01/%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A%E3%81%AE%E3%83%86%E3%82%99%E3%82%B5%E3%82%99%E3%82%A4%E3%83%B3-2021-12-28T122654.509.jpg"},
+    {articleId:1, type:"e", textId:1, text:"VRが世に知られてはや５年、皆様はどのようにお過ごしでしょうか?"},
+    {articleId:1, type:"f", textId:1, text:1}
+  ])
+
+  return (
+    <div className="App">
+      {contentList.map((data, index) => {
+        console.log(index)
+        return(
+          <Content key={index} data={data}/>
+        )
+      })}
+    </div>
+  );
+}
+
+
+やあ僕は¥rrけん¥バービーよ
+
+やあ僕は
+
+rけん
+
+バービーよ
