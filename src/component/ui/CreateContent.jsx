@@ -20,7 +20,7 @@ const CreateContent = memo((props) => {
     ]
     const [articleList, setArticleList] = useState([])
     const [text, setText] = useState("")
-    const [pos, setPos] = useState("")
+    const [pos, setPos] = useState("left")
 
     /* 追加関数 */
     const add = () => {

@@ -47,6 +47,7 @@ function CreateArticle(){
            })
            api.get(`getArticleContent/${state.articleId}`).then((response) => {
                setContentList(response.data)
+               console.log(response.data)
            })
            api.get(`getArticleTag/${state.articleId}`).then((response) => {
                 console.log(response.data)
@@ -206,23 +207,13 @@ function CreateArticle(){
                 }).then((response) => {
                     console.log(response.data.message)
                     setArticleId(response.data.articleId)
-                    contentList.forEach((data, index) => {
-                        api.post("/addNewContent",{
-                            articleId:response.data.articleId,
-                            orderNum:index,
-                            type:data.type,
-                            contentId:data.contentId,
-                            text:data.text,
-                            pos:data.pos
-                        })
+                    api.post("/addNewContent",{
+                        articleId:response.data.articleId,
+                        contentList:contentList
                     })
-                    articleTagList.forEach((data) => {
-                        if(data !== null){
-                            api.post("addArticleTag",{
-                                articleId:response.data.articleId,
-                                tagName:data
-                            })
-                        } 
+                    api.post("addArticleTag",{
+                        articleId:response.data.articleId,
+                        tagList:articleTagList
                     })
                 })
             }else{
@@ -236,26 +227,16 @@ function CreateArticle(){
                 })
                 api.post(`deletePreContent/${articleId}`).then((response) => {
                     console.log(response.data.message)
-                    contentList.forEach((data, index) => {
-                        api.post("/addNewContent",{
-                            articleId:articleId,
-                            orderNum:index,
-                            type:data.type,
-                            contentId:data.contentId,
-                            text:data.text,
-                            pos:data.pos
-                        })
+                    api.post("/addNewContent",{
+                        articleId:articleId,
+                        contentList:contentList
                     })
                 })
                 api.post(`deleteArticleTag/${articleId}`).then((response) => {
                     console.log(response.data.message)
-                    articleTagList.forEach((data) => {
-                        if(data !== null){
-                            api.post("addArticleTag",{
-                                articleId:articleId,
-                                tagName:data
-                            })
-                        } 
+                    api.post("addArticleTag",{
+                        articleId:articleId,
+                        tagList:articleTagList
                     })
                 })
             }
@@ -271,23 +252,13 @@ function CreateArticle(){
                 }).then((response) => {
                     console.log(response.data.message)
                     setArticleId(response.data.articleId)
-                    contentList.forEach((data, index) => {
-                        api.post("/addNewContent",{
-                            articleId:response.data.articleId,
-                            orderNum:index,
-                            type:data.type,
-                            contentId:data.contentId,
-                            text:data.text,
-                            pos:data.pos
-                        })
+                    api.post("/addNewContent",{
+                        articleId:response.data.articleId,
+                        contentList:contentList
                     })
-                    articleTagList.forEach((data) => {
-                        if(data !== null){
-                            api.post("addArticleTag",{
-                                articleId:response.data.articleId,
-                                tagName:data
-                            })
-                        } 
+                    api.post("addArticleTag",{
+                        articleId:response.data.articleId,
+                        tagList:articleTagList
                     })
                 })
             }else{
@@ -302,26 +273,16 @@ function CreateArticle(){
                 })
                 api.post(`deletePreContent/${articleId}`).then((response) => {
                     console.log(response.data.message)
-                    contentList.forEach((data, index) => {
-                        api.post("/addNewContent",{
-                            articleId:articleId,
-                            orderNum:index,
-                            type:data.type,
-                            contentId:data.contentId,
-                            text:data.text,
-                            pos:data.pos
-                        })
+                    api.post("/addNewContent",{
+                        articleId:articleId,
+                        contentList:contentList
                     })
                 })
                 api.post(`deleteArticleTag/${articleId}`).then((response) => {
                     console.log(response.data.message)
-                    articleTagList.forEach((data) => {
-                        if(data !== null){
-                            api.post("addArticleTag",{
-                                articleId:articleId,
-                                tagName:data
-                            })
-                        } 
+                    api.post("addArticleTag",{
+                        articleId:articleId,
+                        tagList:articleTagList
                     })
                 })
             }
