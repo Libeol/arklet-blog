@@ -1,4 +1,4 @@
-import { useHistory, useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import Content from "../ui/Content"
 import { useEffect, useState } from "react"
 import React from "react"
@@ -11,7 +11,6 @@ import FilterChip from "../ui/FilterChip"
 import CheckBox from "../ui/CheckBox"
 
 function CreateArticle(){
-    const history = useHistory()
     const { state } = useLocation()
     
     const [articleId, setArticleId] = useState(0)
@@ -24,7 +23,7 @@ function CreateArticle(){
     const [introText, setIntroText] = useState("")
     const [contentList, setContentList] = useState([])
     const [mokujiList, setMokujiList] = useState([])
-    const [authorList, setAuthorList] = useState([{authorId:1, authorName:"入船凌輔"}])
+    const [authorList, setAuthorList] = useState([])
     const [previewMode, setPreviewMode] = useState(false)
 
     const [anchorEl, setAnchorEl] = useState(null);
@@ -189,7 +188,6 @@ function CreateArticle(){
     /* 保存 */
     const saveArticle = (auto, publish) => {
         const date = new Date()
-        date.setDate(date.getDate() + 14);
         const year = date.getFullYear()
         const month = date.getMonth() + 1
         const day = date.getDate()
