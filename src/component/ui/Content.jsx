@@ -4,7 +4,6 @@ import React from "react"
 
 const Content = memo((props) => {
     const { data, mokujiList } = props
-    console.log(mokujiList)
     if(data.type === "a"){
       return(
           <div>
@@ -90,8 +89,10 @@ const Content = memo((props) => {
                               </React.Fragment>
                             )
                           }else if(text.charAt(0) === "t" && text.charAt(1) === "t"){
+                              console.log(text)
                               const a = text.slice(2)
                               const b = a.split("$$$")
+                              console.log(b[1])
                               return(
                                 <a key={index} href={b[1]}>{b[0]}</a>
                               )
@@ -99,7 +100,7 @@ const Content = memo((props) => {
                             const a = text.slice(2)
                             const b = a.split("$$$")
                             return(
-                              <Link key={index} to={b[1]}>{b[0]}</Link>
+                              <Link key={index} to={`/article/${b[1]}`}>{b[0]}</Link>
                             )
                           }else{
                               return (

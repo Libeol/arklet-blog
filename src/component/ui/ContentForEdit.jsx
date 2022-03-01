@@ -194,13 +194,17 @@ const ContentForEdit = memo((props) => {
                             )
                           }else if(text.charAt(0) === "t" && text.charAt(1) === "t"){
                               const a = text.slice(2)
+                              console.log(a)
                               const b = a.split("$$$")
+                              console.log(b)
                               return(
                                 <a key={index} href={b[1]}>{b[0]}</a>
                               )
                           }else if(text.charAt(0) === "T" && text.charAt(1) === "T"){
                             const a = text.slice(2)
+                            console.log(a)
                             const b = a.split("$$$")
+                            console.log(b)
                             return(
                               <Link key={index} to={`/article/${b[1]}`}>{b[0]}</Link>
                             )

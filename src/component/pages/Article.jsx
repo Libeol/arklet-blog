@@ -10,6 +10,7 @@ function Article () {
     const [createdDate, setCreatedDate] = useState("")//作成日、最終更新日
     const [contentList, setContentList] = useState([])//コンテンツリスト
     const [articleTagList, setArticleTagList] = useState([])//この記事に紐付けられたタグリスト
+    const [mokujiList, setMokujiList] = useState([])
 
     useEffect(() => {
         api.get(`/getArticleInfo/${articleId}`).then((response) => {
@@ -25,12 +26,25 @@ function Article () {
             setCreatedDate(displayDate)
         })
         api.get(`/getArticleTag/${articleId}`).then((response) => {
+            console.log(response.data)
             setArticleTagList(response.data)
         })
         api.get(`/getArticleContent/${articleId}`).then((response) => {
             setContentList(response.data)
+            console.log(response.data)
         })
     },[articleId])
+
+    /* 目次リスト作成 */
+    useEffect(() => {
+        setMokujiList(contentList.map((data) => {
+            if(data.type === "b" || data.type === "c"){
+                return(data)
+            }else{
+                return(null)
+            }
+        }))
+    },[contentList])
 
     return(
         <>
@@ -38,7 +52,7 @@ function Article () {
         <p>{createdDate}</p>
         {contentList.map((data, index) => {
             return(
-                <Content key={index} data={data}/>
+                <Content key={index} data={data} mokujiList={mokujiList}/>
             )
         })}
         </>
