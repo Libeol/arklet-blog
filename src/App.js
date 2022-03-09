@@ -1,6 +1,6 @@
 import './App.css';
 import React from "react"
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import { useState, useEffect } from "react"
 import api from "./component/items/api"
 import TopA from './component/admin/TopA';
@@ -13,13 +13,14 @@ import TopANotLogin from './component/admin/TopANotLogin';
 import SettingAuthor from './component/admin/SettingAuthor';
 import Top from './component/pages/Top';
 import Article from './component/pages/Article';
+import { HashRouter } from 'react-router-dom';
 
 function App() {
   const [id, setId] = useState(1)
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   /* 認証 */
-  /*
+
   useEffect(() => {
     api.get("auth", { withCredentials: true }).then((response) => {
       console.log(response.data)
@@ -28,7 +29,7 @@ function App() {
         setIsLoggedIn(true)
       }
     })
-  }, [])*/
+  }, [])
 
   /* ログイン処理 */
   const login = (authorId) => {
@@ -37,7 +38,7 @@ function App() {
   }
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Switch>
           <Route exact path={"/"}>
             <Top />
@@ -46,48 +47,48 @@ function App() {
             <SignUp />
           </Route>
           <Route path={"/login"}>
-            <Login login={login}/>
+            <Login login={login} />
           </Route>
           <Route path={"/article/:articleId"}>
             <Article />
           </Route>
-          
+
           <Route
             path="/admin"
             render={({ match: { url } }) => (
               <>
                 {isLoggedIn ?
-                <Switch>
-                  <Route exact path={`${url}`}>
-                    <TopA />
-                  </Route>
-                  <Route path={`${url}/createArticle`}>
-                    <CreateArticle />
-                  </Route>
-                  <Route path={`${url}/editTag`}>
-                    <EditTagList />
-                  </Route>
-                  <Route path={`${url}/settingArticle`}>
-                    <SettingArticle />
-                  </Route>
-                  <Route path={`${url}/settingAuthor`}>
-                    <SettingAuthor />
-                  </Route>
-                  
-                </Switch>
-                :
-                <Switch>
-                  <Route exact path={`${url}`}>
-                    <TopANotLogin />
-                  </Route>
-                </Switch>
+                  <Switch>
+                    <Route exact path={`${url}`}>
+                      <TopA />
+                    </Route>
+                    <Route path={`${url}/createArticle`}>
+                      <CreateArticle />
+                    </Route>
+                    <Route path={`${url}/editTag`}>
+                      <EditTagList />
+                    </Route>
+                    <Route path={`${url}/settingArticle`}>
+                      <SettingArticle />
+                    </Route>
+                    <Route path={`${url}/settingAuthor`}>
+                      <SettingAuthor />
+                    </Route>
+
+                  </Switch>
+                  :
+                  <Switch>
+                    <Route exact path={`${url}`}>
+                      <TopANotLogin />
+                    </Route>
+                  </Switch>
                 }
-                
+
               </>
             )}
           />
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }

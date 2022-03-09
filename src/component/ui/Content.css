@@ -1,0 +1,150 @@
+.red {
+  background: linear-gradient(transparent 70%, #ffcdec 0%);
+}
+.red-cap {
+  background: linear-gradient(transparent 70%, #ffcdec 0%);
+  font-weight: bold;
+}
+.yellow {
+  background: linear-gradient(transparent 70%, #ffffad 0%);
+}
+.yellow-cap {
+  background: linear-gradient(transparent 70%, #ffffad 0%);
+  font-weight: bold;
+}
+.cap {
+  font-weight: bold;
+}
+.c-img {
+  display: block;
+  width: 100%;
+}
+
+.c-agenda {
+  margin: 0px 0px 50px 0;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+  padding: 15px 30px;
+  border: rgb(224, 224, 224) solid 1px;
+}
+.c-agenda-h1 {
+  color: #555;
+  font-size: 1rem;
+}
+.c-agenda-h2 {
+  color: #888;
+  font-size: 0.9rem;
+  padding-left: 20px;
+}
+
+.balloon {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 5rem 0 2rem 0;
+  padding: 0.75rem 1rem;
+  min-width: 120px;
+  color: #555;
+  font-size: 16px;
+  background: rgb(194, 130, 219);
+}
+
+.balloon:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50px;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-top: 15px solid rgb(194, 130, 219);
+}
+
+.balloon h1 {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 1.4rem;
+}
+
+.c-mid {
+  margin: 5rem 0 1rem 0;
+  position: relative;
+  font-size: 1.4rem;
+  color: #555;
+  padding-bottom: 0.75rem;
+  border-bottom: rgb(226, 226, 226) solid 2px;
+}
+
+.c-mid::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  width: 200px;
+  border-bottom: rgb(194, 130, 219) solid 2px;
+}
+
+.c-border {
+  box-sizing: border-box;
+  padding: 30px 30px;
+  border: rgb(194, 130, 219) solid 2px;
+  background-color: #fffae9;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.balloon1-left {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 1rem 2rem;
+  width: calc(100% - 15px);
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+  border-radius: 10px;
+}
+
+.balloon1-left:before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: -30px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #e0edff;
+}
+
+.balloon1-left p {
+  margin: 0;
+  padding: 0;
+}
+
+.balloon1-right {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 1.5em 15px 1.5em 0;
+  padding: 1rem 2rem;
+  width: calc(100% - 15px);
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+  border-radius: 10px;
+}
+
+.balloon1-right:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-left: 15px solid #e0edff;
+}
+
+.balloon1-right p {
+  margin: 0;
+  padding: 0;
+}

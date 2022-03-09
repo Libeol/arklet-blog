@@ -1,21 +1,4 @@
-.red{
-  color: red;
-}
-.red-cap{
-  color: red;
-  font-weight: bold;
-}
-.yellow{
-  color:yellow;
-}
-.yellow-cap{
-  color: yellow;
-  font-weight: bold;
-}
-.cap{
-  font-weight: bold;
-}
-img{
+img {
+  width: 200px;
   display: block;
-  width:200px;
 }
