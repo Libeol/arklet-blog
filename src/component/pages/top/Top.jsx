@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { Link, useHistory } from "react-router-dom"
-import api from "../items/api"
+import api from "../../items/api"
+import { Hero, Latest, Recommend } from "../../sections"
 
 function Top() {
     const history = useHistory()
@@ -38,6 +39,10 @@ function Top() {
 
     return (
         <>
+            <Hero />
+            <Recommend />
+            <Latest />
+
             <Link to={"/admin"}>admin</Link>
             <input value={keyWord} onChange={(e) => { setKeyWord(e.target.value) }} />
             <button onClick={searchKeyWord}>キーワード検索</button>
