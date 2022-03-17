@@ -11,9 +11,10 @@ import Login from './component/signup/Login';
 import SignUp from './component/signup/signup';
 import TopANotLogin from './component/admin/TopANotLogin';
 import SettingAuthor from './component/admin/SettingAuthor';
-import Top from './component/pages/Top';
-import Article from './component/pages/Article';
+import Article from './component/pages/article/Article';
 import { HashRouter } from 'react-router-dom';
+import { Top } from './component/pages';
+import { Footer, Header } from './component';
 
 function App() {
   const [id, setId] = useState(1)
@@ -39,6 +40,7 @@ function App() {
   return (
     <>
       <HashRouter>
+        <Header />
         <Switch>
           <Route exact path={"/"}>
             <Top />
@@ -88,6 +90,7 @@ function App() {
             )}
           />
         </Switch>
+        <Footer />
       </HashRouter>
     </>
   );
