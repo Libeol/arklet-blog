@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react"
-import api from "../../items/api"
-import Content from "../../ui/Content";
+import api from "../items/api"
+import Content from "../ui/Content";
 
-function Article() {
+function Article () {
     const { articleId } = useParams()
     console.log(articleId)
     const [articleInfo, setArticleInfo] = useState("")
@@ -19,7 +19,7 @@ function Article() {
             let date = new Date(response.data[0].createdDate)
             console.log(date)
             let year = date.getFullYear()
-            let month = date.getMonth() + 1
+            let month = date.getMonth()+1
             let day = date.getDate()
             let displayDate = `${year}/${month}/${day}`
             console.log(displayDate)
@@ -33,28 +33,28 @@ function Article() {
             setContentList(response.data)
             console.log(response.data)
         })
-    }, [articleId])
+    },[articleId])
 
     /* 目次リスト作成 */
     useEffect(() => {
         setMokujiList(contentList.map((data) => {
-            if (data.type === "b" || data.type === "c") {
-                return (data)
-            } else {
-                return (null)
+            if(data.type === "b" || data.type === "c"){
+                return(data)
+            }else{
+                return(null)
             }
         }))
-    }, [contentList])
+    },[contentList])
 
-    return (
+    return(
         <>
-            <h1>{articleInfo.articleTitle}</h1>
-            <p>{createdDate}</p>
-            {contentList.map((data, index) => {
-                return (
-                    <Content key={index} data={data} mokujiList={mokujiList} />
-                )
-            })}
+        <h1>{articleInfo.articleTitle}</h1>
+        <p>{createdDate}</p>
+        {contentList.map((data, index) => {
+            return(
+                <Content key={index} data={data} mokujiList={mokujiList}/>
+            )
+        })}
         </>
     )
 }
